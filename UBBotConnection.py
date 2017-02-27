@@ -18,6 +18,11 @@ def sendEndpointNotification(endpoint_id, msg):
   ws.send(json.dumps(packet))
   pass
 
+def changeMotd(endpoint_id, motd):
+  packet = { 'c': 'motd', 'motd': motd }
+  ws.send(json.dumps(packet))
+  pass
+
 def createGame(name, server_id, map, time_limit, score_limit, players):
   game_id = random.randint(0, 10000000)
 

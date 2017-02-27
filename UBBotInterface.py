@@ -23,10 +23,12 @@ def onChat(user_id, endpoint_id, user_name, message):
   if(len(message) > 0):
     if(message == "game" and len(servers) > 0):
       game_id = UBBotConnection.createGame("Test Bot Game", servers[0], "Miniball", 1, 1, [[user_id, endpoint_id, 0]])
-    elif(message[0] != '!'):
+    elif(message[0] == '!'):
+      UBBotConnection.sendEndpointNotification(endpoint_id, message[1:])
+    elif(message[0] == '#'):
+      UBBotConnection.changeMotd(endpoint_id, message[1:])
+    else:      
       UBBotConnection.sendChat(message)
-    else:
-      UBBotConnection.sendEndpointNotification(endpoint_id, message)
 
 def onPlayerJoined(user_id, user_name, squad_tag):
   print "Player joined " + user_name
