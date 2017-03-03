@@ -30,3 +30,4 @@ def createGame(name, server_id, map, time_limit, score_limit, players):
   packet = { 'c': 'game', 'server_id': server_id, 'game_id': game_id, 'game_settings': settings, 'players': players }
 
   ws.send(json.dumps(packet))
+  return game_id
