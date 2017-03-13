@@ -5,7 +5,7 @@ def IsList(val):
   return isinstance(val, dict)
 
 def ParseChangePath(path):
-  strs = re.split('\.|\[|\]/', path)
+  strs = re.split('\.|\[|\]', path)
   
   assign_str = ""
   elems = []
