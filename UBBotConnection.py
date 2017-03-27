@@ -23,6 +23,11 @@ def changeMotd(endpoint_id, motd):
   ws.send(json.dumps(packet))
   pass
 
+def changeLobbyInfo(endpoint_id, motd):
+  packet = { 'c': 'winfo', 'motd': motd }
+  ws.send(json.dumps(packet))
+  pass
+
 def createGame(name, server_id, map, time_limit, score_limit, players):
   game_id = random.randint(0, 10000000)
 
